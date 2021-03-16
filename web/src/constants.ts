@@ -10,7 +10,7 @@ export const defaultSettings: Required<ISettingInputKnown> = {
     timerRed: '00:15',
     timerOvertime: '00:20',
     speakerName: '',
-    presetTime: 'TT',
+    presetTime: 'IntSync',
     speakers: [],
     colorOverride: '',
     speakerIndex: -1,

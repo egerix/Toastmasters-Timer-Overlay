@@ -8,6 +8,7 @@ class Border {
     private currentSetColor: ISettableColours = 'white'
     private overrideColour: ISettableColours | '' = ''
     elements: HTMLElement[]
+    parking = getElementByID('parking', 'div')
 
     constructor(elements: (HTMLElement | string)[]) {
         this.elements = elements.map(el => (typeof el === 'string') ? getElementByID(el) : el)
@@ -23,6 +24,7 @@ class Border {
 
     refresh() {
         const val = this.overrideColour != '' ? this.overrideColour : this.currentSetColor
+        this.parking.hidden = true
 
         if (this.currentColour == val) {
             return

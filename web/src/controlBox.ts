@@ -18,6 +18,8 @@ class ControlBox extends HidableControl {
     selector = new TimingSelector('controlHead', true)
     speaker = getElementByID('SpeakerName', 'input')
     readout = getFirstTextByOuterID('timeReadout')
+    readoutDiv = getElementByID('timeReadout', 'div')
+    parking = getElementByID('parking', 'div')
 
     constructor(val: string | HTMLDivElement) {
         super(val)
@@ -30,9 +32,16 @@ class ControlBox extends HidableControl {
         this.speaker.onchange = () => this.onSpeakerNameChange()
 
         this.selector.el.onchange = () => void setSetting('presetTime', this.selector.el.value)
+        this.readoutDiv.hidden = false
+        this.parking.hidden = true
+        console.log("coustructor")
     }
 
     onStartButton() {
+        this.readoutDiv.hidden = false
+        this.parking.hidden = true
+        console.log("start")
+
         if (this.timerStart > 0 && this.timerStop == 0) {
             setSetting('timerStop', Date.serverNow())
         } else if (this.timerStart > 0 && this.timerStop > 0) {
@@ -44,6 +53,10 @@ class ControlBox extends HidableControl {
     }
 
     onResetButton() {
+        this.readoutDiv.hidden = true
+        this.parking.hidden = true
+        console.log("reset")
+
         setSettings({ timerStart: 0, timerStop: 0 })
     }
 
@@ -113,6 +126,7 @@ class ControlBox extends HidableControl {
             border.colour = 'red'
         } else {
             border.colour = (msElapsed - overtime) % 1000 >= 500 ? 'white' : 'red'
+            border.parking.hidden = false
         }
 
         const timeStr = msToMinSecStr(msElapsed)

@@ -3,14 +3,14 @@ html, body {
     padding: 0;
     height: 100%;
     text-align: center;
-    font-family: 'Noto Sans TC', 'Open Sans';
+    font-family: 'JetBrains Mono', 'Open Sans', monospace;
 }
 
 body {
     background-color: rgb(255, 255, 255);
 }
 
-div{
+div {
     overflow: hidden;
 }
 
@@ -74,7 +74,7 @@ div{
     bottom: 0;
 }
 
-#urlControl>input {
+#urlControl > input {
     width: 4em;
 }
 
@@ -99,7 +99,7 @@ div{
     transition: all 0.2s linear;
 }
 
-#dropdown.hideDrop{
+#dropdown.hideDrop {
     right: -404px;
 }
 
@@ -151,11 +151,11 @@ img.up {
     transition: all 0.2s linear;
 }
 
-img{
+img {
     transition: all 0.2s linear;
 }
 
-#dropdown ::placeholder{
+#dropdown ::placeholder {
     color: rgb(146, 146, 146);
 }
 
@@ -163,7 +163,7 @@ img.right {
     transform: rotate(-90deg);
 }
 
-img.left{
+img.left {
     transform: rotate(90deg);
 }
 
@@ -179,23 +179,24 @@ img.rotate45 {
     background-color: rgb(180, 180, 180);
 }
 
-#dropdown-users>.speaker.inFocus{
-    background-color: rgb(155,166,243);;
+#dropdown-users > .speaker.inFocus {
+    background-color: rgb(155, 166, 243);;
 }
+
 #dropdown-control {
     display: flex;
 }
 
-#dropdown-control:not(.hide)~#dropdown-users>.speaker:first-child{
+#dropdown-control:not(.hide) ~ #dropdown-users > .speaker:first-child {
     border-top: 2px solid black;
 }
 
-#dropdown-control>div {
+#dropdown-control > div {
     width: 100%;
     padding: 10px 10px 5px 10px;
 }
 
-#dropdown-control img{
+#dropdown-control img {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -204,7 +205,7 @@ img.rotate45 {
     user-select: none;
 }
 
-#dropdown-control>div:hover {
+#dropdown-control > div:hover {
     background-color: rgb(180, 180, 180);
 }
 
@@ -234,7 +235,7 @@ img.rotate45 {
     border-top: 2px solid red;
 }
 
-#controls>div {
+#controls > div {
     width: 100%;
     margin: 5px 0;
 }
@@ -244,14 +245,62 @@ img.rotate45 {
 }
 
 #timeReadout {
+    background-color: azure;
+    width: 100px;
+    height: 40px;
     font-size: 30px;
+    margin: 0 40px 40px 0;
 }
 
-#timeSettings>input {
+#parking {
+    font-size: 12vh;
+    margin-bottom: 20vh;
+    font-weight: bold;
+    font-family: Arial, serif;
+    animation: blinkingText 5s infinite;
+}
+
+@keyframes blinkingText {
+    0% {
+        color: #d40606;
+    }
+    25% {
+        color: #ee9c00;
+    }
+    50% {
+        color: #e3ff00;
+    }
+    75% {
+        color: #06bf00;
+    }
+    100% {
+        color: #001a98;
+    }
+}
+
+.parking-container {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.timer-container {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+#timeSettings > input {
     width: 4em;
 }
 
-#controlButtons>button {
+#controlButtons > button {
     width: 5em;
 }
 
